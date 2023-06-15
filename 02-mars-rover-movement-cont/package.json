@@ -1,7 +1,7 @@
 {
-  "name": "ts-mars-rover",
+  "name": "mars-rover-movement-kata",
   "version": "0.0.1",
-  "description": "TypeScript Skeleton to play",
+  "description": "Mars Rover movement kata",
   "main": "build/index.js",
   "keywords": [],
   "devDependencies": {
