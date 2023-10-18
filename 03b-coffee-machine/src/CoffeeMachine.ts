@@ -24,6 +24,7 @@ export class CoffeeMachine {
     }
 
     addOneSpoonOfSugar(): void {
+        // @ts-ignore
         this.spoonsOfSugars = Math.min(this.spoonsOfSugars + 1, this.MAX_SPOONS_OF_SUGAR);
     }
 
