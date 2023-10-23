@@ -57,15 +57,17 @@ export class CoffeeMachine {
     }
 
     makeDrink(): void {
-        if (this.isThereEnoughMoney()) {
-            this.drinkMaker.execute(this.composeCommand());
-        } else {
-            this.drinkMaker.execute(this.composeMissingMoneyMessage());
-
-        }
+        this.drinkMaker.execute(this.composeCommand());
     }
 
-    private composeMissingMoneyMessage() {
+    private composeCommand(): string {
+        if (this.isThereEnoughMoney()) {
+            return this.composeDrinkOrder();
+        }
+        return this.composeMissingMoneyMessage();
+    }
+
+    private composeMissingMoneyMessage(): string {
         return `M: not enough money (${(this.computeMissingMoney().toFixed(1))} missing)`;
     }
 
@@ -77,7 +79,7 @@ export class CoffeeMachine {
         return this.money >= this.PriceTable[this.selectedDrink];
     }
 
-    private composeCommand(): string {
+    private composeDrinkOrder(): string {
         return this.composeSelectedDrinkSection() + this.composeSugarSection();
     }
 
