@@ -71,12 +71,16 @@ export class CoffeeMachine {
         return `M: not enough money (${(this.computeMissingMoney().toFixed(1))} missing)`;
     }
 
-    private computeMissingMoney() {
-        return this.PriceTable[this.selectedDrink] - this.money;
+    private computeMissingMoney(): number {
+        return this.getSelectedDrinkPrice() - this.money;
+    }
+
+    private getSelectedDrinkPrice(): number {
+        return this.PriceTable[this.selectedDrink];
     }
 
     private isThereEnoughMoney(): boolean {
-        return this.money >= this.PriceTable[this.selectedDrink];
+        return this.money >= this.getSelectedDrinkPrice();
     }
 
     private composeDrinkOrder(): string {
