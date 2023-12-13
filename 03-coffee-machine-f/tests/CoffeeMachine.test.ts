@@ -2,6 +2,7 @@ import {anyString, capture, instance, mock, verify} from "ts-mockito";
 import {CoffeeMachine} from "../src/CoffeeMachine";
 import { Drink } from "../src/Drink";
 import { DrinkMaker800 } from "../src/DrinkMaker800";
+import { Model800DrinkMakerDriver } from "../src/Model800DrinkMakerDriver";
 
 describe('Coffee Machine', () => {
     let drinkMaker: DrinkMaker800;
@@ -253,5 +254,5 @@ describe('Coffee Machine', () => {
 });
 
 function aCoffeeMachine(drinkMaker: DrinkMaker800, priceTable: Record<Drink, number>) {
-    return new CoffeeMachine(instance(drinkMaker), priceTable);
+    return new CoffeeMachine(instance(drinkMaker), priceTable,  new Model800DrinkMakerDriver(instance(drinkMaker)));
 }
