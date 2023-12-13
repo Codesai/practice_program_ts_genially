@@ -1,10 +1,11 @@
 import {DrinkMaker800} from "./DrinkMaker800";
 import {Drink} from "./Drink";
 import {Order} from "./Order";
+import {DrinkMakerDriver} from "./DrinkMakerDriver";
 
-export class Model800DrinkMakerDriver {
-    private readonly drinkMaker: DrinkMaker800;
-    private readonly RepresentationsByDrink: Record<Drink, string> = {
+export class Model800DrinkMakerDriver implements DrinkMakerDriver {
+    readonly drinkMaker: DrinkMaker800;
+    readonly RepresentationsByDrink: Record<Drink, string> = {
         [Drink.Coffee]: "C",
         [Drink.Tea]: "T",
         [Drink.Chocolate]: "H",

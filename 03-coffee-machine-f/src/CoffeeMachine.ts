@@ -2,11 +2,12 @@ import {DrinkMaker800} from "./DrinkMaker800";
 import {OrderProcessing} from "./OrderProcessing";
 import {Model800DrinkMakerDriver} from "./Model800DrinkMakerDriver";
 import {Drink} from "./Drink";
+import { DrinkMakerDriver } from "./DrinkMakerDriver";
 
 export class CoffeeMachine {
     private orderProcessing: OrderProcessing;
     private readonly priceTable: Record<Drink, number>;
-    private readonly drinkMakerDriver: Model800DrinkMakerDriver;
+    private readonly drinkMakerDriver: DrinkMakerDriver;
 
     constructor(drinkMaker: DrinkMaker800, priceTable: Record<Drink, number>) {
         this.drinkMakerDriver = new Model800DrinkMakerDriver(drinkMaker);
