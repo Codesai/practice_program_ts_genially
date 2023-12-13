@@ -9,7 +9,7 @@ export class CoffeeMachine {
     private readonly priceTable: Record<Drink, number>;
     private readonly drinkMakerDriver: DrinkMakerDriver;
 
-    constructor(drinkMaker: DrinkMaker800, priceTable: Record<Drink, number>, drinkMakerDriver: DrinkMakerDriver = new Model800DrinkMakerDriver(drinkMaker)) {
+    constructor(priceTable: Record<Drink, number>, drinkMakerDriver: DrinkMakerDriver) {
         this.drinkMakerDriver = drinkMakerDriver;
         this.priceTable = priceTable;
         this.resetOrderProcessing();

@@ -254,5 +254,5 @@ describe('Coffee Machine', () => {
 });
 
 function aCoffeeMachine(drinkMaker: DrinkMaker800, priceTable: Record<Drink, number>) {
-    return new CoffeeMachine(instance(drinkMaker), priceTable,  new Model800DrinkMakerDriver(instance(drinkMaker)));
+    return new CoffeeMachine(priceTable,  new Model800DrinkMakerDriver(instance(drinkMaker)));
 }
