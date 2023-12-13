@@ -17,7 +17,7 @@ describe('Coffee Machine', () => {
                     [Drink.OrangeJuice]: 0.0
                 }
                 drinkMaker = mock<DrinkMaker800>();
-                coffeeMachine = aCoffeeMachine(drinkMaker, priceTable);
+                coffeeMachine = aCoffeeMachineUsingDrinkMaker800(drinkMaker, priceTable);
             });
 
             it('orders a coffee', () => {
@@ -87,7 +87,7 @@ describe('Coffee Machine', () => {
                 [Drink.OrangeJuice]: 0.6
             }
             drinkMaker = mock<DrinkMaker800>();
-            coffeeMachine = aCoffeeMachine(drinkMaker, priceTable);
+            coffeeMachine = aCoffeeMachineUsingDrinkMaker800(drinkMaker, priceTable);
         });
 
         it("does not order a coffe", () => {
@@ -137,7 +137,7 @@ describe('Coffee Machine', () => {
                 [Drink.Coffee]: 0.0,
                 [Drink.OrangeJuice]: 0.0,
             };
-            coffeeMachine = aCoffeeMachine(drinkMaker, priceTable);
+            coffeeMachine = aCoffeeMachineUsingDrinkMaker800(drinkMaker, priceTable);
         });
 
         it("order a tea", () => {
@@ -167,7 +167,7 @@ describe('Coffee Machine', () => {
                 [Drink.OrangeJuice]: 0.6
             }
             drinkMaker = mock<DrinkMaker800>();
-            coffeeMachine =  aCoffeeMachine(drinkMaker, priceTable);
+            coffeeMachine =  aCoffeeMachineUsingDrinkMaker800(drinkMaker, priceTable);
         });
 
         it('after making a drink', () => {
@@ -253,6 +253,6 @@ describe('Coffee Machine', () => {
     }
 });
 
-function aCoffeeMachine(drinkMaker: DrinkMaker800, priceTable: Record<Drink, number>) {
+function aCoffeeMachineUsingDrinkMaker800(drinkMaker: DrinkMaker800, priceTable: Record<Drink, number>) {
     return new CoffeeMachine(priceTable,  new Model800DrinkMakerDriver(instance(drinkMaker)));
 }
