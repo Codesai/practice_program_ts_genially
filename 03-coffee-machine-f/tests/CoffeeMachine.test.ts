@@ -16,7 +16,7 @@ describe('Coffee Machine', () => {
                     [Drink.OrangeJuice]: 0.0
                 }
                 drinkMaker = mock<DrinkMaker800>();
-                coffeeMachine = new CoffeeMachine(instance(drinkMaker), priceTable);
+                coffeeMachine = aCoffeeMachine(drinkMaker, priceTable);
             });
 
             it('orders a coffee', () => {
@@ -86,7 +86,7 @@ describe('Coffee Machine', () => {
                 [Drink.OrangeJuice]: 0.6
             }
             drinkMaker = mock<DrinkMaker800>();
-            coffeeMachine = new CoffeeMachine(instance(drinkMaker), priceTable);
+            coffeeMachine = aCoffeeMachine(drinkMaker, priceTable);
         });
 
         it("does not order a coffe", () => {
@@ -130,16 +130,13 @@ describe('Coffee Machine', () => {
         let coffeeMachine: CoffeeMachine;
         beforeEach(() => {
             drinkMaker = mock<DrinkMaker800>();
-            const pricesConfig = {
+            const priceTable = {
                 [Drink.Tea]: 0.0,
                 [Drink.Chocolate]: 0.0,
                 [Drink.Coffee]: 0.0,
                 [Drink.OrangeJuice]: 0.0,
             };
-            coffeeMachine = new CoffeeMachine(
-                instance(drinkMaker),
-                pricesConfig
-            );
+            coffeeMachine = aCoffeeMachine(drinkMaker, priceTable);
         });
 
         it("order a tea", () => {
@@ -169,7 +166,7 @@ describe('Coffee Machine', () => {
                 [Drink.OrangeJuice]: 0.6
             }
             drinkMaker = mock<DrinkMaker800>();
-            coffeeMachine = new CoffeeMachine(instance(drinkMaker), priceTable);
+            coffeeMachine =  aCoffeeMachine(drinkMaker, priceTable);
         });
 
         it('after making a drink', () => {
@@ -254,3 +251,7 @@ describe('Coffee Machine', () => {
         expect(actualMessage).toMatch(new RegExp(`M:${expectedMessage}`));
     }
 });
+
+function aCoffeeMachine(drinkMaker: DrinkMaker800, priceTable: Record<Drink, number>) {
+    return new CoffeeMachine(instance(drinkMaker), priceTable);
+}
