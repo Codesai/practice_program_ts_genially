@@ -3,7 +3,7 @@ import {Order} from "./Order";
 
 export class OrderProcessing {
     private readonly MAX_SPOONS_OF_SUGAR: number = 2;
-    selectedDrink: Drink;
+    private selectedDrink: Drink;
     private extraHot: boolean;
     private spoonsOfSugars: number;
     private money: number;
