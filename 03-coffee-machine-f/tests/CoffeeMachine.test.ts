@@ -1,8 +1,8 @@
 import {anyString, capture, instance, mock, verify} from "ts-mockito";
 import {CoffeeMachine} from "../src/CoffeeMachine";
 import { Drink } from "../src/Drink";
-import { DrinkMaker800 } from "../src/DrinkMaker800";
-import { Model800DrinkMakerDriver } from "../src/Model800DrinkMakerDriver";
+import { DrinkMaker800 } from "../src/infrastructure/DrinkMaker800";
+import { Model800DrinkMakerDriver } from "../src/infrastructure/Model800DrinkMakerDriver";
 
 describe('Coffee Machine', () => {
     let drinkMaker: DrinkMaker800;
